@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingTop="40dp"
+    tools:context="com.example.swapnil.myapplication.CalculateRewards">
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp"
+        android:layout_margin="6dp"
+        android:gravity="center"
+
+        android:background="@drawable/edittextround"
+        android:orientation="vertical"
+        android:id="@+id/linearLayout">
+
+        <EditText
+            android:id="@+id/billvalueetxt"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:textSize="23sp"
+            android:gravity="center"
+            android:background="@drawable/edittextsharp"
+            android:inputType="number"
+
+            />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/checkrewardsbtn"
+            android:layout_marginTop="20dp"
+
+            android:padding="10dp"
+            android:textColor="#fff"
+            android:background="@drawable/button"
+            android:layout_weight="1"
+            android:text="Check Rewards" />
+
+        <TextView
+            android:id="@+id/rewardText"
+            android:textColor="@color/colorAccent"
+            android:layout_width="wrap_content"
+            android:textSize="23sp"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp"
+            android:layout_height="wrap_content"
+            android:text="" />
+
+
+        <Button
+            android:id="@+id/continueBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#fff"
+            android:background="@drawable/button"
+            android:text="Continue" />
+
+    </LinearLayout>
+
+
+</RelativeLayout>
