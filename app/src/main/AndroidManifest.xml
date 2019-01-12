@@ -20,7 +20,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".CalculateRewards" />
-        <activity android:name=".MobileCheck"></activity>
+        <activity android:name=".MobileCheck" />
+        <activity android:name=".GuestDetails"></activity>
     </application>
 
 </manifest>
