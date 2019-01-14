@@ -29,11 +29,14 @@
         android:src="@drawable/ic_cloud_done_black_24dp" />
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/successmessage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:gravity="center"
         android:layout_below="@+id/imageView3"
         android:layout_centerHorizontal="true"
+        android:textSize="18sp"
+        android:textColor="@color/colorPrimary"
         android:layout_marginTop="16dp"
         android:text="TextView" />
 

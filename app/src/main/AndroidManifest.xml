@@ -7,7 +7,7 @@
     <application
         android:name=".AppController"
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/lasticon"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
@@ -24,7 +24,10 @@
         <activity android:name=".GuestDetails" />
         <activity android:name=".SuccessFullmessage" />
         <activity android:name=".CreditActivity" />
-        <activity android:name=".CheckMyCurrentRewards"></activity>
+        <activity android:name=".CheckMyCurrentRewards" />
+        <activity android:name=".DebitActivity" />
+        <activity android:name=".DebitMobilenumberCheck" />
+        <activity android:name=".StaticMobileNumbercheck"></activity>
     </application>
 
 </manifest>

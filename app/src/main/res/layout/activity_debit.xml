@@ -18,7 +18,7 @@
         android:id="@+id/linearLayout2">
 
         <TextView
-            android:id="@+id/nameofguest"
+            android:id="@+id/nameofguestdebit"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="18sp"
@@ -31,7 +31,7 @@
             android:text="TextView" />
 
         <TextView
-            android:id="@+id/rewardpoints"
+            android:id="@+id/rewardpointsdebit"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="18sp"
@@ -44,12 +44,12 @@
             android:text="TextView" />
 
         <Button
-            android:id="@+id/creditbtn"
+            android:id="@+id/debitbtn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/button"
+            android:background="#ff303e"
             android:textColor="#fff"
             android:layout_marginTop="28dp"
-            android:text="Add Points !!!" />
+            android:text="Redeem Points !!!" />
     </LinearLayout>
 </RelativeLayout>

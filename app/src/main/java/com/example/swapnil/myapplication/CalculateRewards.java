@@ -10,7 +10,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 public class CalculateRewards extends AppCompatActivity {
-Button checkrewardsBtn,continueBtn;
+Button checkrewardsBtn,continueBtn,debitButton,Chkrewardsbtn;
 String billvalueString;
 int rewardsPoint;
 TextView rewardTextview;
@@ -24,7 +24,25 @@ EditText rewardTextEdit;
         rewardTextview=(TextView)findViewById(R.id.rewardText);
         rewardTextEdit=(EditText)findViewById(R.id.billvalueetxt);
         continueBtn=(Button)findViewById(R.id.continueBtn);
+        debitButton=(Button)findViewById(R.id.debitbtn);
+        Chkrewardsbtn=(Button)findViewById(R.id.chkrewardsbtn);
 
+        Chkrewardsbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent GotoDebit=new Intent(CalculateRewards.this,StaticMobileNumbercheck.class);
+                startActivity(GotoDebit);
+
+            }
+        });
+
+        debitButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent GotoDebit=new Intent(CalculateRewards.this,DebitMobilenumberCheck.class);
+                startActivity(GotoDebit);
+            }
+        });
         continueBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

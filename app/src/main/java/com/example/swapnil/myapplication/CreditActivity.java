@@ -62,6 +62,7 @@ String addTransactionUrl;
                 String status=responseObject.getString("sucess");
                 if(status.equals("1")){
                     Intent SuccessMessage=new Intent(CreditActivity.this,SuccessFullmessage.class);
+                    SuccessMessage.putExtra("message",rewardsStr+" Points Credited in"+ guestnameStr+"`s GreenLeaf Wallet.");
                     startActivity(SuccessMessage);
                 }else {
                     Toast.makeText(CreditActivity.this, "Something Went Wrong", Toast.LENGTH_SHORT).show();

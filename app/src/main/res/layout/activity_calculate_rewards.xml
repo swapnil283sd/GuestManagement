@@ -75,5 +75,17 @@
         android:layout_margin="16dp"
         android:text="Debit Points" />
 
+    <Button
+        android:id="@+id/chkrewardsbtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/debitbtn"
+        android:layout_centerHorizontal="true"
+        android:background=" #ffbf00"
+        android:text="Check Rewards BY number"
+        android:layout_margin="16dp"
+        android:textColor="#fff" />
 
 </RelativeLayout>
+
+

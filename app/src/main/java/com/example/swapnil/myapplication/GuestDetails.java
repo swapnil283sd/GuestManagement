@@ -71,6 +71,7 @@ Bundle extras;
                     String status=jsonObject.getString("success");
                     if(status.equals("1")){
                         Intent SuccessMessage=new Intent(GuestDetails.this,SuccessFullmessage.class);
+                        SuccessMessage.putExtra("message",firstNamestr+" "+"ji is been added in GreenLeaf Rewards Program."+rewardStr+" is been added in GreenLeaf wallet");
                         startActivity(SuccessMessage);
                     }else{
                         Toast.makeText(GuestDetails.this, "Something Went Wrong One !!!", Toast.LENGTH_SHORT).show();
