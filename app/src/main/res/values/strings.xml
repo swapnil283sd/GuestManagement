@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">My Application</string>
+    <string name="detectingmobileurl">http://greenleafpureveg.in/guestmangement/detectexistingno.php</string>
+    <string name="addnewguesturl">http://greenleafpureveg.in/guestmangement/addcustomer.php</string>
 </resources>
