@@ -6,11 +6,19 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class CreditActivity extends AppCompatActivity {
 
@@ -19,7 +27,7 @@ String guestnameStr,rewardsStr,availbalStr,mobilenumberString;
 Bundle extras;
 Button creditButton;
     StringRequest creditRequest;
-String addTransactionUrl=getString(R.string.addtransactionurl);
+String addTransactionUrl;
 
 @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,7 +36,7 @@ String addTransactionUrl=getString(R.string.addtransactionurl);
         guestName=(TextView)findViewById(R.id.nameofguest);
         rewardPoints=(TextView)findViewById(R.id.rewardpoints);
         creditButton=(Button)findViewById(R.id.creditbtn);
-
+        addTransactionUrl=getString(R.string.addtransactionurl);
         Intent CreditIntent=getIntent();
         extras=CreditIntent.getExtras();
         guestnameStr=extras.getString("guestname");
@@ -49,13 +57,33 @@ String addTransactionUrl=getString(R.string.addtransactionurl);
     creditRequest=new StringRequest(Request.Method.POST, addTransactionUrl, new Response.Listener<String>() {
         @Override
         public void onResponse(String response) {
-
+            try {
+                JSONObject responseObject=new JSONObject(response);
+                String status=responseObject.getString("sucess");
+                if(status.equals("1")){
+                    Intent SuccessMessage=new Intent(CreditActivity.this,SuccessFullmessage.class);
+                    startActivity(SuccessMessage);
+                }else {
+                    Toast.makeText(CreditActivity.this, "Something Went Wrong", Toast.LENGTH_SHORT).show();
+                }
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
         }
     }, new Response.ErrorListener() {
         @Override
         public void onErrorResponse(VolleyError error) {
 
         }
-    });
+    }){
+        @Override
+        protected Map<String, String> getParams() throws AuthFailureError {
+            Map<String, String> param = new HashMap<String, String>();
+            param.put("guest_mobilenumber", mobilenumberString);
+            param.put("trans_mode", "1");
+            param.put("trans_value", rewardsStr);
+            return param;
+        }
+    };
     }
 }

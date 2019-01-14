@@ -23,7 +23,8 @@
         <activity android:name=".MobileCheck" />
         <activity android:name=".GuestDetails" />
         <activity android:name=".SuccessFullmessage" />
-        <activity android:name=".CreditActivity"></activity>
+        <activity android:name=".CreditActivity" />
+        <activity android:name=".CheckMyCurrentRewards"></activity>
     </application>
 
 </manifest>
