@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
@@ -25,6 +26,7 @@ Button creditRewardBtn;
 EditText firstnameEditText,lastnameEditText,dobedittext,mobedittext,doaedittext,moaedittext;
 String firstNamestr,larstNamestr,dobstr,mobstr,doastr,moastr,addguestUrl,mobileStr,rewardStr;
     StringRequest addguestdetailRequest;
+    TextView totalRewards;
     JSONObject jsonObject;
 Bundle extras;
     @Override
@@ -36,19 +38,19 @@ Bundle extras;
         mobileStr=extras.getString("mobilenumber");
         rewardStr=extras.getString("rewardpoints");
 
-        Toast.makeText(this, mobileStr, Toast.LENGTH_SHORT).show();
+
+
         creditRewardBtn=(Button)findViewById(R.id.creditrewardsbtn);
 
         firstnameEditText=(EditText)findViewById(R.id.firstnameedittxt);
         lastnameEditText=(EditText)findViewById(R.id.lastnameedittxt);
-
+        totalRewards=(TextView)findViewById(R.id.balancerewardsTxt);
         dobedittext=(EditText)findViewById(R.id.dobedittxt);
         mobedittext=(EditText)findViewById(R.id.mobedittxt);
         doaedittext=(EditText)findViewById(R.id.doaeditTxt);
         moaedittext=(EditText)findViewById(R.id.moaeditTxt);
         addguestUrl=getString(R.string.addnewguesturl);
-
-
+        totalRewards.setText("Welcome Rewards: "+rewardStr);
         creditRewardBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -71,10 +73,10 @@ Bundle extras;
                         Intent SuccessMessage=new Intent(GuestDetails.this,SuccessFullmessage.class);
                         startActivity(SuccessMessage);
                     }else{
-                        Toast.makeText(GuestDetails.this, "Something Went Wrong!!!", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(GuestDetails.this, "Something Went Wrong One !!!", Toast.LENGTH_SHORT).show();
                     }
                 } catch (JSONException e) {
-                    Toast.makeText(GuestDetails.this, "Something Went Wrong!!!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(GuestDetails.this, "Something Went Wrong Two!!!", Toast.LENGTH_SHORT).show();
                     e.printStackTrace();
                 }
 
@@ -83,7 +85,7 @@ Bundle extras;
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-
+                Toast.makeText(GuestDetails.this, error.toString(), Toast.LENGTH_LONG).show();
             }
         }){
             @Override
@@ -98,10 +100,13 @@ Bundle extras;
                 moastr=moaedittext.getText().toString();
 
                 param.put("guest_mobilenumber", mobileStr);
-                param.put("guest_name", firstNamestr+" "+larstNamestr);
-                param.put("guest_dob", dobstr+"/"+mobstr);
-                param.put("guest_doa", doastr+"/"+moastr);
-                param.put("rewardpoints", rewardStr);
+                param.put("guest_firstname", firstNamestr);
+                param.put("guest_lastname", larstNamestr);
+                param.put("guest_dob", dobstr);
+                param.put("guest_mob", mobstr);
+                param.put("guest_doa", doastr);
+                param.put("guest_moa", moastr);
+                param.put("guest_rewardpoints", rewardStr);
 
                 return param;
             }

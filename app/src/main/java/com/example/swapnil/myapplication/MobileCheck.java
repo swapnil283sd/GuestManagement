@@ -40,6 +40,8 @@ Bundle Extra;
         Extra=getIntent().getExtras();
         rewardsString=Extra.getString("rewardpoints");
 
+        Toast.makeText(this, rewardsString, Toast.LENGTH_SHORT).show();
+
         mobilecheckUrl=getString(R.string.detectingmobileurl);
         checkMobile.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -59,24 +61,29 @@ Bundle Extra;
                     JSONObject jsonObject=new JSONObject(response);
                     String flagcheck=jsonObject.getString("sucess");
                     if(flagcheck.equals("1")){
-                        Intent GuestDetails=new Intent(MobileCheck.this,GuestDetails.class);
+                        String guestfirstnameStr=jsonObject.getString("guest_firstname");
+                        String guestlastnameStr=jsonObject.getString("guest_lastname");
+                        String availbalanceStr=jsonObject.getString("avail_balance");
+                        Intent GuestDetails=new Intent(MobileCheck.this,CreditActivity.class);
+                        GuestDetails.putExtra("guestname",guestfirstnameStr+" "+guestlastnameStr);
                         GuestDetails.putExtra("mobilenumber",mobileString);
                         GuestDetails.putExtra("rewardpoints",rewardsString);
+                        GuestDetails.putExtra("availbalance",availbalanceStr);
+
                         startActivity(GuestDetails);
                     }else{
 
                         Toast.makeText(MobileCheck.this, "You are about to add new member", Toast.LENGTH_SHORT).show();
                         Intent GuestDetails=new Intent(MobileCheck.this,GuestDetails.class);
                         GuestDetails.putExtra("mobilenumber",mobileString);
+                        GuestDetails.putExtra("rewardpoints",rewardsString);
                         startActivity(GuestDetails);
                     }
                 } catch (JSONException e) {
                     progressBar.setVisibility(View.GONE);
                     e.printStackTrace();
                 }
-
-
-            }
+      }
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {

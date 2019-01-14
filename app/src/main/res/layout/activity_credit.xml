@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.swapnil.myapplication.CreditActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:background="@drawable/edittextround"
+        android:padding="6dp"
+        android:layout_margin="10dp"
+        android:orientation="vertical"
+        android:id="@+id/linearLayout2">
+
+        <TextView
+            android:id="@+id/nameofguest"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="30sp"
+            android:gravity="center"
+            android:textStyle="bold"
+            android:padding="5dp"
+            android:textColor="@color/primarycolor"
+            android:background="@drawable/edittextsharp"
+            android:layout_margin="6dp"
+            android:text="TextView" />
+
+        <TextView
+            android:id="@+id/rewardpoints"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="24sp"
+            android:padding="5dp"
+            android:gravity="center"
+            android:textStyle="bold"
+            android:textColor="@color/primarycolor"
+            android:background="@drawable/edittextsharp"
+            android:layout_margin="6dp"
+            android:text="TextView" />
+
+        <Button
+            android:id="@+id/creditbtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/button"
+            android:textColor="#fff"
+            android:layout_marginTop="28dp"
+            android:text="Add Points !!!" />
+    </LinearLayout>
+</RelativeLayout>

@@ -40,7 +40,7 @@ EditText rewardTextEdit;
 
                 if(flagcheck>0){
                     Intent MobileChek=new Intent(CalculateRewards.this,MobileCheck.class);
-                    MobileChek.putExtra("rewardpoints",flagcheck);
+                    MobileChek.putExtra("rewardpoints",rewardTextview.getText().toString());
                     startActivity(MobileChek);
                 }else {
                     Toast.makeText(CalculateRewards.this, " Please Enter Valid Inputs ", Toast.LENGTH_SHORT).show();
