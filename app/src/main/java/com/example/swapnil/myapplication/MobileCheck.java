@@ -64,13 +64,13 @@ Bundle Extra;
                         String guestfirstnameStr=jsonObject.getString("guest_firstname");
                         String guestlastnameStr=jsonObject.getString("guest_lastname");
                         String availbalanceStr=jsonObject.getString("avail_balance");
-                        Intent GuestDetails=new Intent(MobileCheck.this,CreditActivity.class);
-                        GuestDetails.putExtra("guestname",guestfirstnameStr+" "+guestlastnameStr);
-                        GuestDetails.putExtra("mobilenumber",mobileString);
-                        GuestDetails.putExtra("rewardpoints",rewardsString);
-                        GuestDetails.putExtra("availbalance",availbalanceStr);
+                        Intent CreditDetails=new Intent(MobileCheck.this,CreditActivity.class);
+                        CreditDetails.putExtra("guestname",guestfirstnameStr+" "+guestlastnameStr);
+                        CreditDetails.putExtra("mobilenumber",mobileString);
+                        CreditDetails.putExtra("rewardpoints",rewardsString);
+                        CreditDetails.putExtra("availbalance",availbalanceStr);
 
-                        startActivity(GuestDetails);
+                        startActivity(CreditDetails);
                     }else{
 
                         Toast.makeText(MobileCheck.this, "You are about to add new member", Toast.LENGTH_SHORT).show();
